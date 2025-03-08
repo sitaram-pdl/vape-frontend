@@ -1,0 +1,24 @@
+name: SRP landing - Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to Vercel Dev Env
+    environment: Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Push to www.srp.com.np       
+        uses: nexterias/actions-vercel@v1
+        with:
+          token: ${{ secrets.VERCEL_TOKEN }}
+          org-id: ${{ secrets.ORG_ID }}
+          project-id: ${{ secrets.PROJECT_ID }}
+          production: true
+          prebuilt: false

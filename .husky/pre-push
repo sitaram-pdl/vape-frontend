@@ -1,0 +1,21 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Displaying a header for clarity
+echo "===================================="
+echo "Running pre-push hook... 🚀"
+echo "===================================="
+
+# Run lint-staged to fix linting and format files
+yarn lint-staged
+
+# Checking if lint-staged ran successfully
+if [ $? -eq 0 ]; then
+    echo "✨ All checks passed. Ready to push! ✨"
+else
+    echo "❌ Linting/Formatting failed. Please fix the issues and try again. ❌"
+    exit 1
+fi
+
+# End of pre-push hook
+echo "===================================="
