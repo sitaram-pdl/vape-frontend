@@ -27,12 +27,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const [hydratedProduct, setHydratedProduct] = useState<Product | null>(null);
 
-  // Ensure consistent data after hydration
   useEffect(() => {
     setHydratedProduct(product);
   }, [product]);
 
-  // Avoid rendering mismatched content before hydration
   if (!hydratedProduct) return null;
 
   const getBadgeColor = (shippingType?: string): string => {

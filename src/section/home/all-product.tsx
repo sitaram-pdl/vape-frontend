@@ -29,7 +29,7 @@ const ProductGrid = () => {
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-2xl font-bold">All Products</h2>
         <button className="font-medium text-red-500 hover:text-red-600">
-          View All →
+          View All
         </button>
       </div>
 
